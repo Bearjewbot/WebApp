@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+:root{
+  --standard-font: "Sanchez", serif;
+  
+  --text-link-color: ;
+
+  
+  --btn-gray-background-color: rgb(131, 131, 131);
+  --btn-gray-border-color: rgb(131, 131, 131);  
+  --btn-gray-text-color: ;
+  
+  
+  --btn-gray-hover-background-color: ;
+  --btn-gray-hover-border-color: ;
+  --btn-gray-hover-text-color: ;
+  --text-muted-color: ;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--standard-font);
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+
+.section-title {
+  padding: 1rem 0;
+
+  .container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+     font-size: 1em; 
+     font-weight: 700;
+     text-transform: uppercase;
+     margin: 0;
+  }
+
+  nav{
+    display: flex;
+    gap: 0.5rem;
+  }
+}
+
+.btn{
+  background-color: transparent;
+  border-color: var(---border-color);
+  border-radius: 25px;
+  color: var(--text-color);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+
+  &:hover{
+    text-decoration: none;
+    background-color: var(--text-muted-color);
+    border: var(--text-muted-color);
+    color: var(--text-muted-color);
+  }
+}
+
+.btn-gray{
+  background-color: var(--btn-gray-background-color);
+  border-color: var(--btn-gray-border-color);
+  color: var(--btn-gray-text-color);
+
+  &:hover{
+    background-color: var(--btn-gray-hover-background-color);
+    border-color: var(--btn-gray-hover-border-color);
+    color: var(--btn-gray-hover-text-color);
+  }
+}
+
+.btn-yellow{
+  background-color: var(--btn-yellow-background-color);
+  border-color: var(--btn-yellow-border-color);
+  color: var(--btn-yellow-text-color);
+
+  &:hover{
+    background-color: var(--btn-yellow-hover-background-color);
+    border-color: var(--btn-yellow-hover-border-color);
+    color: var(--btn-yellow-hover-text-color);
+  }
+}
+
+.list-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+  li{
+    list-style: none;
+  }
+  
+}
