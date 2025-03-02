@@ -4,8 +4,8 @@ export const ProjectContext = createContext()
 
 export const ProjectProvider = ({children}) => {
 
-    const apiUri = ''
-    const defaultValues = {id: 0, description: '', notes: '', statusType: {}, startDate: '', endDate: '', userEntity: {}, serviceType: {}, customerEntity: {}};
+    const apiUri = 'https://localhost:7291/api/project'
+    const defaultValues = {id: 0, description: '', notes: '', price: 0, startDate: '', endDate: '', status: {}, user: { fullName: ''}, service: {}, customer: {}};
     const [projects, setProjects] = useState([])
     const [project, setProject] = useState({defaultValues})
 

@@ -5,12 +5,12 @@ const ProjectListItem = ({project}) => {
 
 
   return (
-    <Link to={`/projects/${project.id}`} >
-       <div>{project.id}</div> 
-       <div>{project.description}</div> 
-       <div>{project.startDate}</div> 
-       <div>{project.endDate}</div> 
-       <div>{project.userEntityId.fullName}</div> 
+    <Link className='list-items-wrapper' to={`/projects/${project.id}`} >
+       <div className='project' >{project.id}</div> 
+       <div className='description' >{project.description}</div> 
+       <div className='start'>{project.startDate}</div> 
+       <div className='end'>{project.endDate}</div> 
+       <div className='manager'>{project.user.fullName}</div> 
     </Link>
 
   )
