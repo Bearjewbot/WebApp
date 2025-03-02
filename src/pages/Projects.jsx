@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ProjectList from '../elements/ProjectList'
 
-const Projects = () => {
 
+
+const Projects = () => {
 
   return (
     <>
-      
       <div className='project-list'>
         <ProjectList/>
       </div>

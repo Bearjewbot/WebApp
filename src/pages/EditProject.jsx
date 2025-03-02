@@ -19,13 +19,13 @@ const EditProject = () => {
     <>
         
         <div>EditProject</div>
-        <Link to="/projects/">Gå till projekt</Link>
+        <Link to="/">Gå tillbaka till projekt</Link>
 
         <form>
-            <label for="projectNumber">Project Number:</label>
+            <label>Project Number:</label>
             <input type="text" id="projectNumber" name="projectNumber" ></input>
             <br></br>
-            <label for="projectDescription">Project Description:</label>
+            <label>Project Description:</label>
             <input type="text" id="projectDescription" name="projectDescription"></input>
             <br></br>
             <input type="submit" value="Submit"></input>

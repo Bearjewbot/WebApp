@@ -8,7 +8,7 @@ const ProjectList = () => {
 
   useEffect(() => {
      getProjectsValues()
-  } , [])
+  }, [])
   
 
   return (
