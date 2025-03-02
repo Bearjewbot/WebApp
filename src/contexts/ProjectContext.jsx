@@ -1,13 +1,13 @@
-import { createContext, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const ProjectContext = createContext()
 
 export const ProjectProvider = ({children}) => {
 
     const apiUri = ''
-    const defaultValues = {id: '', description: '', notes: '', statusTypeId: '', startDate: '', endDate: '', userEntityId:'', serviceTypeId: '', customerEntityId: ''};
+    const defaultValues = {id: 0, description: '', notes: '', statusType: {}, startDate: '', endDate: '', userEntity: {}, serviceType: {}, customerEntity: {}};
     const [projects, setProjects] = useState([])
-    cont [project, setProject] = useState({defaultValues})
+    const [project, setProject] = useState({defaultValues})
 
     const getProjectsValues = async () => {
         const response = await fetch(`${apiUri}`)

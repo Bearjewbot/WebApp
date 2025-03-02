@@ -1,9 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { ProjectContext } from '../contexts/ProjectContext';
 
 const EditProject = () => {
-  
-    const defailtValues = {Title: 'Hej', Description: ''}
+
+    const { id } = useParams();
+    const {project, getProjectValues} = useContext(ProjectContext);
+
+     useEffect(() => {
+         getProjectValues(id)
+         if (id !== 0) {
+         document.getElementById('projectNumber').value = project.id;
+         document.getElementById('projectDescription').value = project.description;
+         }
+     } , [id])
+
     return (
     <>
         
