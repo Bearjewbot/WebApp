@@ -106,3 +106,12 @@ html, body {
   }
   
 }
+
+.project-list-wrapper{
+    display: flex;
+
+  .list-headlines{
+    display: flex;
+    gap: 2rem;
+  }
+}

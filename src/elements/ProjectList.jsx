@@ -12,7 +12,15 @@ const ProjectList = () => {
   
 
   return (
-    <div>ProjectList
+    <div className='project-list-wrapper' >
+       <div className='list-headlines' >
+            <div>PROJEKT NUMMER</div> 
+            <div>BESKRIVNING</div> 
+            <div>PÅBÖRJAS</div> 
+            <div>AVSLUTAS</div> 
+            <div>ANSVARIG</div>
+       </div> 
+
     {
         projects.map(project => (
             <ProjectListItem key={project.id} item={project}/>
