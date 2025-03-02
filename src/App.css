@@ -96,22 +96,28 @@ html, body {
   }
 }
 
-.list-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  
-  li{
-    list-style: none;
-  }
-  
-}
 
-.project-list-wrapper{
-    display: flex;
+
+.project-list{
+
 
   .list-headlines{
+    background-color: lightgray;
     display: flex;
-    gap: 2rem;
+    justify-self: center;
+    gap: 4rem;
   }
+  .list-items-wrapper{
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    justify-self: center;
+  }
+}
+
+.projects-buttons{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 20px ;
 }

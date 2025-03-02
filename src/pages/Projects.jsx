@@ -8,14 +8,12 @@ const Projects = () => {
   return (
     <>
       
-      <div className='list-wrapper'>
-      
+      <div className='project-list'>
+        <ProjectList/>
       </div>
-      <ProjectList></ProjectList>
 
-      <div>Projects</div>
-      <Link to="/projects/create">Skapa nytt projekt</Link>
-      <Link to="/projects/edit">Edit page</Link>
+      <Link className='projects-buttons'to="/projects/create">Skapa nytt projekt</Link>
+      <Link className='projects-buttons'to="/projects/edit">Edit page</Link>
     </>
   )
 }

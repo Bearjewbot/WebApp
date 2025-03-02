@@ -12,18 +12,18 @@ const ProjectList = () => {
   
 
   return (
-    <div className='project-list-wrapper' >
+    <div className='project-list' >
        <div className='list-headlines' >
             <div>PROJEKT NUMMER</div> 
             <div>BESKRIVNING</div> 
             <div>PÅBÖRJAS</div> 
             <div>AVSLUTAS</div> 
-            <div>ANSVARIG</div>
+            <div>ASVARIG</div>
        </div> 
 
     {
         projects.map(project => (
-            <ProjectListItem key={project.id} item={project}/>
+            <ProjectListItem key={project.id} project={project}/>
         ))
     }
     </div>
