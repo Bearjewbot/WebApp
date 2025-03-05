@@ -21,11 +21,11 @@ const ProjectList = () => {
             <div>ASVARIG</div>
        </div> 
 
-    {
+        {
         projects.map(project => (
             <ProjectListItem key={project.id} project={project}/>
         ))
-    }
+        }
     </div>
   )
 }

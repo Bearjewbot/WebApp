@@ -18,7 +18,7 @@ export const ProjectProvider = ({children}) => {
     const getProjectValues = async (id) => {
         const response = await fetch(`${apiUri}/${id}`)
         const data = await response.json()
-        setProjects(data)
+        setProject(data)
     }
 
     useEffect(() => {
