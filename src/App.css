@@ -121,3 +121,22 @@ html, body {
   justify-content: center;
   padding: 20px ;
 }
+
+.edit-form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid;
+  width: 50%;
+  margin: 0 auto;
+
+  input, textarea{
+    padding: 8px;
+  }
+
+  button{
+    padding: 0.5rem;
+    border: 1px solid;
+  }
+}
