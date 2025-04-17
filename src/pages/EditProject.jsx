@@ -44,23 +44,23 @@ const EditProject = () => {
         <Link to="/">Gå tillbaka till projekt</Link>
 
         <form className='edit-form'>
-            <label>Projekt Number:</label>
+            <label htmlFor='projectNumber'>Projekt Number:</label>
             <input type="number" id="projectNumber" value={formData.projectNumber} name="projectNumber" readOnly></input>
             
-            <label>Projekt beskrivning:</label>
+            <label htmlFor='projectDescription'>Projekt beskrivning:</label>
             <input type="text" id="projectDescription" value={formData.projectDescription} name="projectDescription"></input>
             
-            <label>Startdatum:</label>
+            <label htmlFor='startDate'>Startdatum:</label>
             <input type="date" id="startDate" value={formData.startDate} name="startDate"></input>
 
-            <label>Slutdatum:</label>
+            <label htmlFor='endDate'>Slutdatum:</label>
             <input type="date" id="endDate" value={formData.endDate} name="endDate"></input>
 
-            <label>Ansvarig:</label>
+            <label htmlFor='manager'>Ansvarig:</label>
             <input type="text" id="manager" value={formData.manager} name="manager"></input>
 
-            <label>Projektstatus:</label>
-            <select id="projectStatus" value={formData.projectStatus}>
+            <label htmlFor='projectStatus'>Projektstatus:</label>
+            <select id="projectStatus" value={formData.projectStatus} name='projectStatus'>
 
             </select>
             <input type="submit" value="Submit"></input>
