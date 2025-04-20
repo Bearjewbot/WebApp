@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { CustomerContext } from '../contexts/CustomerContext'
 import { ServiceTypeContext } from '../contexts/ServiceTypeContext'
 import { StatusContext } from '../contexts/StatusContext'
@@ -36,6 +36,8 @@ const CreateProject = () => {
             CustomerId: parseInt(e.target['customer'].value)
         }
 
+        console.log(projectData)
+
         const response = await fetch('https://localhost:7291/api/project', {
             method: 'post',
             headers: {
@@ -44,11 +46,19 @@ const CreateProject = () => {
             body: JSON.stringify(projectData)
         })
 
-        console.log(response)
+        e.target['projectDescription'].reset
+        e.target['startDate'].reset
+        e.target['endDate'].reset
+        e.target['manager'].reset
+        e.target['price'].reset
+        e.target['projectStatus'].reset
+        e.target['projectServiceType'].reset
+        e.target['customer'].reset
+
     } 
   
     return (
-        <section className="section-title">
+        <section className="create-project">
           <div className="container">
             <form className="create-form" onSubmit={projectRegistration}>
               <h1>Skapa nytt projekt</h1>
@@ -63,15 +73,13 @@ const CreateProject = () => {
               <input type="date" id="endDate" name="endDate" />
 
               <label htmlFor="price">Pris:</label>
-              <input type="decimal" id="price" name="price" />
+              <input type="number" id="price" name="price" />
     
               <label htmlFor="manager">Ansvarig:</label>
               <select id="manager" name="manager" defaultValue="0">
                 <option disabled hidden value="0">Välj en projektansvarig</option>
                 {user.map(userKey => (
-                  <option key={userKey.id} value={userKey.id}>
-                    {userKey.firstName} {userKey.lastName}
-                  </option>
+                  <option key={userKey.id} value={userKey.id}>{userKey.firstName} {userKey.lastName}</option>
                 ))}
               </select>
     
@@ -79,9 +87,7 @@ const CreateProject = () => {
               <select id="projectStatus" name="projectStatus" defaultValue="0">
                 <option disabled hidden value="0">Välj en status</option>
                 {status.map(statusKey => (
-                  <option key={statusKey.id} value={statusKey.id}>
-                    {statusKey.type}
-                  </option>
+                  <option key={statusKey.id} value={statusKey.id}>{statusKey.type}</option>
                 ))}
               </select>
     
@@ -89,9 +95,7 @@ const CreateProject = () => {
               <select id="projectServiceType" name="projectServiceType" defaultValue="0">
                 <option disabled hidden value="0">Välj en tjänst</option>
                 {serviceType.map(serviceKey => (
-                  <option key={serviceKey.id} value={serviceKey.id}>
-                    {serviceKey.type}
-                  </option>
+                  <option key={serviceKey.id} value={serviceKey.id}>{serviceKey.type}</option>
                 ))}
               </select>
     
@@ -99,9 +103,7 @@ const CreateProject = () => {
               <select id="customer" name="customer" defaultValue="0">
                 <option disabled hidden value="0">Välj en kund</option>
                 {customer.map(customerKey => (
-                  <option key={customerKey.id} value={customerKey.id}>
-                    {customerKey.name}
-                  </option>
+                  <option key={customerKey.id} value={customerKey.id}>{customerKey.name}</option>
                 ))}
               </select>
     
