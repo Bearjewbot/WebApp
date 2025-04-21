@@ -159,3 +159,8 @@ html, body {
     border: 1px solid;
   }
 }
+
+.list-items{
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
