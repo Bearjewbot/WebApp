@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ProjectContext } from '../contexts/ProjectContext';
 import { CustomerContext } from '../contexts/CustomerContext'
 import { ServiceTypeContext } from '../contexts/ServiceTypeContext'
@@ -14,6 +14,8 @@ const EditProject = () => {
     const {serviceType, getServiceTypeValues} = useContext(ServiceTypeContext)
     const {status, getStatusValues} = useContext(StatusContext)
     const {user, getUserValues} = useContext(UserContext)
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         getProjectValues(id),
@@ -36,10 +38,6 @@ const EditProject = () => {
             CustomerId: project.customer.id
         })
     }, [project])
-
-    useEffect(() => {
-        console.log('Updated project:', project);
-    }, [project]);
 
     const [formData, setFormData] = useState({
             Id: '',
@@ -67,9 +65,6 @@ const EditProject = () => {
 
         e.preventDefault()
 
-        console.log(formData)
-        console.log('😂')
-
         const response = await fetch('https://localhost:7291/api/project', {
             method: 'put',
             headers: {
@@ -77,6 +72,13 @@ const EditProject = () => {
             },
             body: JSON.stringify(formData)
         })
+
+        if (response.ok) {
+            console.log('Project edited!');
+            navigate('/projects')
+        } else {
+            console.error('There was some issue editing the project.');
+        }
     } 
 
     return (

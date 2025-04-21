@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CustomerContext } from '../contexts/CustomerContext'
 import { ServiceTypeContext } from '../contexts/ServiceTypeContext'
 import { StatusContext } from '../contexts/StatusContext'
@@ -12,6 +12,8 @@ const CreateProject = () => {
     const {serviceType, getServiceTypeValues} = useContext(ServiceTypeContext)
     const {status, getStatusValues} = useContext(StatusContext)
     const {user, getUserValues} = useContext(UserContext)
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         getCustomerValues(),
@@ -36,8 +38,6 @@ const CreateProject = () => {
             CustomerId: parseInt(e.target['customer'].value)
         }
 
-        console.log(projectData)
-
         const response = await fetch('https://localhost:7291/api/project', {
             method: 'post',
             headers: {
@@ -46,15 +46,13 @@ const CreateProject = () => {
             body: JSON.stringify(projectData)
         })
 
-        e.target['projectDescription'].reset
-        e.target['startDate'].reset
-        e.target['endDate'].reset
-        e.target['manager'].reset
-        e.target['price'].reset
-        e.target['projectStatus'].reset
-        e.target['projectServiceType'].reset
-        e.target['customer'].reset
-
+        if (response.ok) {
+            console.log('Project created!');
+            navigate('/projects')
+        } else {
+            console.error('There was some issue creating the project.');
+        }
+        
     } 
   
     return (
@@ -106,8 +104,8 @@ const CreateProject = () => {
                   <option key={customerKey.id} value={customerKey.id}>{customerKey.name}</option>
                 ))}
               </select>
-    
-              <input type="submit" value="Submit" />
+                
+              <input type="submit" value="Submit"/>
               <Link to="/projects/">Gå tillbaka till startsidan</Link>
             </form>
           </div>
